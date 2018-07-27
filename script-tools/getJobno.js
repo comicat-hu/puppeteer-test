@@ -6,9 +6,18 @@ const puppeteer = require("puppeteer");
 var getJobLinks = async(url) => {
 
     const browser = await puppeteer.launch({
-        headless: false
+        headless: true
     });
     const page = await browser.newPage();
+    await page.setRequestInterception(true);
+    page.on('request', (request) => {
+        if (['image', 'stylesheet', 'font', 'script'].indexOf(request.resourceType()) !== -1) {
+            request.abort();
+        } else {
+            request.continue();
+        }
+    });
+    
     await page.goto(url);
 
     // click full-time
@@ -36,7 +45,7 @@ var getJobLinks = async(url) => {
 };
 
 // search page
-let page = 1;
+let page = 100;
 let url = 'https://www.104.com.tw/jobs/search/';
 
 if (page != '') {

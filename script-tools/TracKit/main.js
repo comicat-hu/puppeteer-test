@@ -10,9 +10,9 @@ async function main() {
     for (let ticketID of ticketIDs) {
         // return TracTicket
         await tracKit.downloadTicket(ticketID, {
-            savepath: `${__dirname}/ticket-save/${ticketID}.md`
+            savepath: `${__dirname}/ticket-save/${ticketID}.md`,
+            comments: true
         })
-        .then(tracTicket => console.log(tracTicket.getTitle()))
         .catch(err => console.log(`[Download #${ticketID} Failed] ${err}`));
     }
 

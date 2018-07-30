@@ -123,8 +123,9 @@ function TracKit() {
         return comments;
     };
 
-    this.getTicketTitle = (ticketID) => ticketID ? _title[ticketID] : _title;
-    this.getTicketDescription = (ticketID) => ticketID ? _description[ticketID] : _description;
+    this.getTicket = (ticketID) => {
+        ticketID ? _tickets[ticketID] : _tickets;
+    };
 
     this.close = async () => {
         await puppeteer().closeBrowser();

@@ -77,17 +77,16 @@ function TracKit() {
             if (!fs.existsSync(dir)) {
                 mkdirp.sync(dir);
             }
-            fs.appendFile(options.savepath, ticket.getDescription(), (err) => {
-                if (err) throw err;
-            });
 
+            let content = ticket.getDescription();
             if (options.comments) {
-                let content = '\n-----\n' + (ticket.getComment()).join('\n\n');
-                fs.appendFile(options.savepath, content, (err) => {
-                    if (err) throw err;
-                });
+                content += '\n-----\n' + (ticket.getComment()).join('\n\n');
             }
-            console.log(ticketID + ' saved.');
+            fs.appendFile(options.savepath, content, (err) => {
+                if (err) throw err;
+
+                console.log(ticketID + ' saved.');
+            });            
         }
 
         _tickets[ticketID] = ticket;

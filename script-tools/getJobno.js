@@ -55,7 +55,7 @@ if (page != '') {
 getJobLinks(url).then((links) => {
     console.log(links);
     let jobnos = links.map((link) => {
-        let jobno = link.match(/jobno=(.*?)&/);
+        let jobno = link.match(/\/job\/(.*?)\?/);
         return jobno ? parseInt(jobno[1], 36) : null;
     });
     jobnos = jobnos.filter((jobno) => jobno);

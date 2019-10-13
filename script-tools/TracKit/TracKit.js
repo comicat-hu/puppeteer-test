@@ -29,7 +29,7 @@ function TracKit() {
 
     let login = async () => {
         let target = this.getWebRoot();
-        let auth = new Buffer(`${this.getUsername()}:${this.getPassword()}`).toString('base64');
+        let auth = Buffer.from(`${this.getUsername()}:${this.getPassword()}`).toString('base64');
         let page = await puppeteer().getPage();
         await page.setExtraHTTPHeaders({
             'Authorization': `Basic ${auth}`                   

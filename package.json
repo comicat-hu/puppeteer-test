@@ -11,7 +11,7 @@
   "dependencies": {
     "html-entities": "^1.2.1",
     "mkdirp": "^0.5.1",
-    "puppeteer": "^1.6.1",
+    "puppeteer": "^1.20.0",
     "tracer": "^0.9.1"
   }
 }

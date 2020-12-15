@@ -126,6 +126,17 @@ function TracKit() {
         ticketID ? _tickets[ticketID] : _tickets;
     };
 
+    this.closeTicket = async (ticketID) => {
+        await login();
+        let target = `${this.getWebRoot()}/ticket/${ticketID}`;
+        let page = await puppeteer().getPage();
+        await page.goto(target);
+        await page.click('#action_resolve');
+        await page.click('#propertyform > div.buttons > input.trac-disable-on-submit');
+        console.log(`${ticketID} closed.`);
+        return Promise.resolve();
+    };
+
     this.close = async () => {
         await puppeteer().closeBrowser();
     };

@@ -2,6 +2,8 @@
 
 Download trac ticket (title, description, comments)
 
+Close trac ticket (set resolve: fixed)
+
 Example:
 * run `npm install` on nodejs v8+
 * set webroot(host), username, password of trac
@@ -22,4 +24,8 @@ Api:
     ticket.getTitle()
     ticket.getDescription()
     ticket.getComment()
+    ```
+* TracKit.closeTicket
+    ```
+    TracKit.closeTicket(ticketID)
     ```

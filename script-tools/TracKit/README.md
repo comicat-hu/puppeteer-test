@@ -12,7 +12,7 @@ Example:
 
 Api:
 * TracKit.downloadTicket
-    ```
+    ```js
     options = {
         savepath: 'save/to/path/filename',
         comments: true, // dowanload comments
@@ -20,13 +20,13 @@ Api:
     TracKit.downloadTicket(ticketID, options)
     ```
 * TracKit.getTicket
-    ```
+    ```js
     ticket = TracKit.getTicket(ticketID)
     ticket.getTitle()
     ticket.getDescription()
     ticket.getComment()
     ```
 * TracKit.closeTicket
-    ```
+    ```js
     TracKit.closeTicket(ticketID)
     ```

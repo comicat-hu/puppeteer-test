@@ -6,7 +6,8 @@ Close trac ticket (set resolve: fixed)
 
 Example:
 * run `npm install` on nodejs v8+
-* set webroot(host), username, password of trac
+* cp config.example.json config.json
+* set webRoot, username, password of trac
 * run `node main.js`
 
 Api:

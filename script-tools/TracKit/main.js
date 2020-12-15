@@ -1,12 +1,12 @@
-const tracKit = require('./tracKit');
+const tracKit = require('./TracKit');
+const config = require('./config.json')
 
 async function main() {
-    // TODO
-    tracKit.setWebRoot('');
-    tracKit.setUsername('');
-    tracKit.setPassword('');
+    tracKit.setWebRoot(config.webRoot);
+    tracKit.setUsername(config.username);
+    tracKit.setPassword(config.password);
     
-    let ticketIDs = [4080,7079,4111,4081];
+    let ticketIDs = config.ticketIDs;
     for (let ticketID of ticketIDs) {
         // return TracTicket
         await tracKit.downloadTicket(ticketID, {
